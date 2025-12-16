@@ -137,7 +137,7 @@ export default function Footer() {
             <div className="flex flex-col w-full lg:w-auto">
               <div className="flex items-center gap-3 mb-2 w-full lg:w-auto">
                 <Image
-                  src="/assets/logo-lg.png"
+                  src="/assets/logo.svg"
                   alt="ClearEdge Logo"
                   width={0}
                   height={0}

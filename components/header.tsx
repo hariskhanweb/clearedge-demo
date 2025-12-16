@@ -64,8 +64,6 @@ export default function Header() {
 
   const resourcesLinks = [
     { href: "#", label: "Blog" },
-    { href: "#", label: "Case Studies" },
-    { href: "#", label: "Documentation" },
     { href: "#", label: "Support Center" },
   ];
 
@@ -74,7 +72,7 @@ export default function Header() {
       <div className="container flex items-center justify-between">
         <Link href="/" className="h-[70.642px] w-[315.198px] flex items-center">
           <Image
-            src="/assets/logo.png"
+            src="/assets/logo.svg"
             alt="ClearEdge"
             width={315}
             height={71}
