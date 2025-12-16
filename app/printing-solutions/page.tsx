@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import Link from "next/link";
 import PartnerLogos from "@/components/partner-logos";
 import { ArrowRight } from "lucide-react";
 import { WorkCard } from "@/components/work-card";
@@ -71,22 +71,20 @@ export default function PrintingSolutions() {
                 <p>These issues add up - not just in dollars, but in downtime.</p>
               </div>
               <div className="flex flex-row flex-wrap gap-4">
-                <Button
-                  variant="default"
-                  size="lg"
-                  className="bg-brand-blue hover:bg-[#023d8a] text-white rounded-none flex items-center gap-2"
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-brand-blue hover:bg-[#023d8a] text-white rounded-none font-roboto font-normal transition-colors gap-2"
                 >
                   Book an Audit
                   <ArrowRight className="w-5 h-5" />
-                </Button>
-                <Button
-                  variant="default"
-                  size="lg"
-                  className="bg-[#767676] hover:bg-[#656565] text-white rounded-none flex items-center gap-2"
+                </Link>
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-[#767676] hover:bg-[#656565] text-white rounded-none font-roboto font-normal transition-colors gap-2"
                 >
                   View Products
                   <ArrowRight className="w-5 h-5" />
-                </Button>
+                </Link>
               </div>
             </div>
             <div className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[450px] flex items-center justify-center lg:justify-end">
@@ -217,23 +215,21 @@ export default function PrintingSolutions() {
               variant="outlined"
             />
           </div>
-          <div className="flex flex-wrap justify-center flex-row gap-4">
-            <Button
-              variant="default"
-              size="lg"
-              className="bg-brand-blue hover:bg-[#023d8a] text-white rounded-none flex items-center gap-2"
+              <div className="flex flex-wrap justify-center flex-row gap-4">
+            <Link 
+              href="/contact"
+              className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-brand-blue hover:bg-[#023d8a] text-white rounded-none font-roboto font-normal transition-colors gap-2"
             >
               Book an Audit
               <ArrowRight className="w-5 h-5" />
-            </Button>
-            <Button
-              variant="default"
-              size="lg"
-              className="bg-[#767676] hover:bg-[#656565] text-white rounded-none flex items-center gap-2"
+            </Link>
+            <Link 
+              href="/contact"
+              className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-[#767676] hover:bg-[#656565] text-white rounded-none font-roboto font-normal transition-colors gap-2"
             >
               View Products
               <ArrowRight className="w-5 h-5" />
-            </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -242,11 +238,11 @@ export default function PrintingSolutions() {
       <StatsSection
         button1={{
           label: "Book an Audit",
-          url: "#",
+          url: "/contact",
         }}
         button2={{
           label: "View Products",
-          url: "#",
+          url: "/contact",
         }}
       />
 
@@ -267,7 +263,7 @@ export default function PrintingSolutions() {
               image="/assets/Department.png"
               imageAlt="Department WorkForce Enterprise"
               bgColor="#85b4b5"
-              link="#"
+              link="/contact"
               linkText="See the Range"
             />
             <ProductCard
@@ -279,7 +275,7 @@ export default function PrintingSolutions() {
               image="/assets/Workgroup.png"
               imageAlt="Workgroup WorkForce Pro"
               bgColor="#959b9e"
-              link="#"
+              link="/contact"
               linkText="See the Range"
             />
             <ProductCard
@@ -291,7 +287,7 @@ export default function PrintingSolutions() {
               image="/assets/Desktop.png"
               imageAlt="Desktop WorkForce Pro"
               bgColor="#83b6b7"
-              link="#"
+              link="/contact"
               linkText="See the Range"
             />
           </div>

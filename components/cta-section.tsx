@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 
 interface CTASectionProps {
@@ -31,9 +30,9 @@ const defaultProps: CTASectionProps = {
     "Recommendations tailored to your team size and print volume",
   ],
   primaryButtonText: "Book an Audit",
-  primaryButtonUrl: "#",
+  primaryButtonUrl: "/contact",
   secondaryButtonText: "Talk to a Specialist",
-  secondaryButtonUrl: "#",
+  secondaryButtonUrl: "/contact",
   image: "/assets/customer-service-operator.png",
   imageAlt: "Customer service operator",
   bgColor: "#E1EBEC",
@@ -82,25 +81,19 @@ export default function CTASection({
                 </ul>
               </div>
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link href={primaryUrl}>
-                  <Button
-                    variant="default"
-                    size="lg"
-                    className="bg-brand-blue hover:bg-[#023d8a] text-white rounded-none flex items-center gap-2"
-                  >
-                    {primaryButtonText}
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
+                <Link 
+                  href={primaryUrl}
+                  className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-brand-blue hover:bg-[#023d8a] text-white rounded-none font-roboto font-normal transition-colors gap-2"
+                >
+                  {primaryButtonText}
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
-                <Link href={secondaryUrl}>
-                  <Button
-                    variant="default"
-                    size="lg"
-                    className="bg-[#767676] hover:bg-[#656565] text-white rounded-none flex items-center gap-2"
-                  >
-                    {secondaryButtonText}
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
+                <Link 
+                  href={secondaryUrl}
+                  className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-[#767676] hover:bg-[#656565] text-white rounded-none font-roboto font-normal transition-colors gap-2"
+                >
+                  {secondaryButtonText}
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
             </div>

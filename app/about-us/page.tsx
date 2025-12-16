@@ -96,11 +96,11 @@ export default function AboutUs() {
       <StatsSection
         button1={{
           label: "Book an Audit",
-          url: "#",
+          url: "/contact",
         }}
         button2={{
           label: "View Products",
-          url: "#",
+          url: "/contact",
         }}
       />
 

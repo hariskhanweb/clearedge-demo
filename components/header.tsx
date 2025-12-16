@@ -3,14 +3,12 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 export default function Header() {
   const [isResourcesOpen, setIsResourcesOpen] = useState(false);
   const [isSolutionsOpen, setIsSolutionsOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isMounted, setIsMounted] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const resourcesRef = useRef<HTMLDivElement>(null);
   const solutionsRef = useRef<HTMLDivElement>(null);
@@ -18,16 +16,8 @@ export default function Header() {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const solutionsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setIsMounted(true);
-    }, 100);
-  }, []);
-
   // Close dropdown when clicking outside
   useEffect(() => {
-    if (!isMounted) return;
-
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
@@ -49,7 +39,7 @@ export default function Header() {
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [isMounted]);
+  }, []);
 
   // Cleanup timeout on unmount
   useEffect(() => {
@@ -63,9 +53,13 @@ export default function Header() {
     };
   }, []);
 
-  const solutionsLinks = [
+  const servicesSolutionsLinks = [
     { href: "/printing-solutions", label: "Printing Solutions" },
     { href: "/communication-solutions", label: "Communication Solutions" },
+    { href: "/marketing-sales-system", label: "Marketing & Sales System" },
+    { href: "/security-privacy", label: "Security & Privacy" },
+    { href: "/productivity-efficiency", label: "Productivity & Efficiency" },
+    { href: "/hardware-operational-solutions", label: "Hardware & Operational Solutions" },
   ];
 
   const resourcesLinks = [
@@ -91,12 +85,6 @@ export default function Header() {
 
         {/* Desktop Navigation */}
         <div className="hidden xl:flex items-center gap-[37.945px]">
-          <Link
-            href="/"
-            className="text-[18.973px] font-roboto text-white hover:opacity-80 transition-opacity"
-          >
-            Services
-          </Link>
           <div
             ref={solutionsRef}
             className="relative"
@@ -114,7 +102,7 @@ export default function Header() {
           >
             <div className="flex items-center gap-[4.743px] cursor-pointer group">
               <span className="text-[18.973px] font-roboto text-white">
-                Solutions
+                Services & Solutions
               </span>
               <ChevronDown
                 className={`w-[28.459px] h-[28.459px] text-white group-hover:opacity-80 transition-transform ${
@@ -125,7 +113,7 @@ export default function Header() {
             {isSolutionsOpen && (
               <div
                 ref={solutionsDropdownRef}
-                className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[200px] z-50"
+                className="absolute top-full left-0 mt-2 bg-white rounded-lg shadow-lg py-2 min-w-[250px] z-50"
                 onMouseEnter={() => {
                   if (solutionsTimeoutRef.current) {
                     clearTimeout(solutionsTimeoutRef.current);
@@ -137,7 +125,7 @@ export default function Header() {
                   }, 150);
                 }}
               >
-                {solutionsLinks.map((link, index) => (
+                {servicesSolutionsLinks.map((link, index) => (
                   <Link
                     key={index}
                     href={link.href}
@@ -211,16 +199,18 @@ export default function Header() {
 
         {/* Desktop Buttons */}
         <div className="hidden xl:flex items-center gap-4">
-          <Button variant="outline" size="default" className="rounded-[48px]">
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center h-10 sm:h-12 px-3 sm:px-5 text-sm sm:text-base border border-white text-white hover:bg-white/10 rounded-[48px] font-roboto font-normal transition-colors"
+          >
             Contact
-          </Button>
-          <Button
-            variant="default"
-            size="default"
-            className="rounded-[48px] bg-brand-teal hover:bg-brand-teal/85"
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex items-center justify-center h-10 sm:h-12 px-3 sm:px-5 text-sm sm:text-base bg-brand-teal hover:bg-brand-teal/85 text-white rounded-[48px] font-roboto font-normal transition-colors"
           >
             Support
-          </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -241,19 +231,12 @@ export default function Header() {
       {isMobileMenuOpen && (
         <div className="xl:hidden absolute top-full left-0 right-0 bg-brand-blue-dark border-t border-white/10 z-50">
           <div className="container py-4 space-y-4">
-            <Link
-              href="/"
-              className="block text-[18.973px] font-roboto text-white hover:opacity-80 transition-opacity py-2"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              Services
-            </Link>
             <div className="py-2">
               <button
                 className="flex items-center justify-between w-full text-[18.973px] font-roboto text-white"
                 onClick={() => setIsSolutionsOpen(!isSolutionsOpen)}
               >
-                Solutions
+                Services & Solutions
                 <ChevronDown
                   className={`w-5 h-5 transition-transform ${
                     isSolutionsOpen ? "rotate-180" : ""
@@ -262,7 +245,7 @@ export default function Header() {
               </button>
               {isSolutionsOpen && (
                 <div className="mt-2 pl-4 space-y-2">
-                  {solutionsLinks.map((link, index) => (
+                  {servicesSolutionsLinks.map((link, index) => (
                     <Link
                       key={index}
                       href={link.href}
@@ -316,22 +299,20 @@ export default function Header() {
               )}
             </div>
             <div className="pt-4 space-y-3 border-t border-white/10">
-              <Button
-                variant="outline"
-                size="default"
-                className="rounded-[48px] w-full"
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center h-10 sm:h-12 px-3 sm:px-5 text-sm sm:text-base border border-white text-white hover:bg-white/10 rounded-[48px] font-roboto font-normal transition-colors w-full"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Contact
-              </Button>
-              <Button
-                variant="default"
-                size="default"
-                className="rounded-[48px] bg-brand-teal hover:bg-brand-teal/85 w-full"
+              </Link>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center h-10 sm:h-12 px-3 sm:px-5 text-sm sm:text-base bg-brand-teal hover:bg-brand-teal/85 text-white rounded-[48px] font-roboto font-normal transition-colors w-full"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 Support
-              </Button>
+              </Link>
             </div>
           </div>
         </div>

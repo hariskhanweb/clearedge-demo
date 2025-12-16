@@ -75,7 +75,7 @@ export function WorkCard({
         {description}
       </p>
       {buttonUrl && buttonContent ? (
-        <Link href={buttonUrl} className="w-full">
+        <Link href={buttonUrl} className="w-full flex justify-center">
           {buttonContent}
         </Link>
       ) : (

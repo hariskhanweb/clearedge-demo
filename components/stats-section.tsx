@@ -4,7 +4,6 @@ import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 interface CounterProps {
   target: number;
@@ -145,27 +144,21 @@ export default function StatsSection({ button1, button2 }: StatsSectionProps) {
             {(button1?.url && button1?.label) || (button2?.url && button2?.label) ? (
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5">
                 {button1?.url && button1?.label && (
-                  <Link href={button1.url}>
-                    <Button
-                      variant="default"
-                      size="lg"
-                      className="bg-brand-blue hover:bg-brand-blue-dark text-white rounded-none flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base md:text-lg"
-                    >
-                      {button1.label}
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </Button>
+                  <Link 
+                    href={button1.url}
+                    className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-sm sm:text-base md:text-lg bg-brand-blue hover:bg-brand-blue-dark text-white rounded-none font-roboto font-normal transition-colors gap-2 w-full sm:w-auto"
+                  >
+                    {button1.label}
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
                 )}
                 {button2?.url && button2?.label && (
-                  <Link href={button2.url}>
-                    <Button
-                      variant="default"
-                      size="lg"
-                      className="bg-brand-blue hover:bg-brand-blue-dark text-white rounded-none flex items-center justify-center gap-2 w-full sm:w-auto text-sm sm:text-base md:text-lg"
-                    >
-                      {button2.label}
-                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                    </Button>
+                  <Link 
+                    href={button2.url}
+                    className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-sm sm:text-base md:text-lg bg-brand-blue hover:bg-brand-blue-dark text-white rounded-none font-roboto font-normal transition-colors gap-2 w-full sm:w-auto"
+                  >
+                    {button2.label}
+                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </Link>
                 )}
               </div>

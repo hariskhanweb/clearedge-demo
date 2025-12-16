@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface SolutionCardProps {
@@ -6,6 +7,7 @@ interface SolutionCardProps {
   description: string;
   image?: string;
   imageAlt?: string;
+  href?: string;
 }
 
 export function SolutionCard({
@@ -13,9 +15,10 @@ export function SolutionCard({
   description,
   image,
   imageAlt,
+  href,
 }: SolutionCardProps) {
-  return (
-    <Card className="bg-white rounded-lg shadow-[0px_4px_20px_0px_rgba(0,0,0,0.20)] hover:shadow-xl transition-all duration-300 overflow-hidden">
+  const cardContent = (
+    <Card className="bg-white rounded-lg shadow-[0px_4px_20px_0px_rgba(0,0,0,0.20)] hover:shadow-xl transition-all duration-300 overflow-hidden cursor-pointer">
       <CardContent className="p-0">
         {image && (
           <div className="w-full aspect-video relative flex items-center justify-center overflow-hidden">
@@ -38,5 +41,15 @@ export function SolutionCard({
       </CardContent>
     </Card>
   );
+
+  if (href) {
+    return (
+      <Link href={href} className="block">
+        {cardContent}
+      </Link>
+    );
+  }
+
+  return cardContent;
 }
 

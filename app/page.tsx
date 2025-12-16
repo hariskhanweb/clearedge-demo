@@ -1,11 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { SolutionCard } from "@/components/solution-card";
 import { ProductCard } from "@/components/product-card";
-import ImageCarousel, { ImageSlide } from "@/components/image-carousel";
 import PartnerLogos from "@/components/partner-logos";
 import EnterpriseSolutions from "@/components/enterprise-solutions";
 import StatsSection from "@/components/stats-section";
@@ -15,27 +14,6 @@ import BlogSection from "@/components/blog-section";
 import { getRecentBlogPosts } from "@/lib/blog-data";
 
 export default function Home() {
-  const heroImages: ImageSlide[] = [
-    {
-      id: 1,
-      title: "Hero Image 1",
-      description: "Meeting room with EPSON printer",
-      image: "/assets/hero_slide_1.png",
-    },
-    {
-      id: 2,
-      title: "Hero Image 2",
-      description: "Modern office technology",
-      image: "/assets/hero_slide_2.png",
-    },
-    {
-      id: 3,
-      title: "Hero Image 3",
-      description: "Business collaboration",
-      image: "/assets/hero_slide_2.png",
-    },
-  ];
-
   return (
     <>
       {/* Hero Section */}
@@ -55,13 +33,14 @@ export default function Home() {
               </h1>
             </div>
           </div>
-          {/* Right side - Hero image carousel extends to edge */}
-          <div className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-auto lg:min-h-[496.513px] bg-gray-200 order-first lg:order-last">
-            <ImageCarousel
-              images={heroImages}
-              className="w-full h-full"
-              autoPlayInterval={5000}
-              showNavigation={true}
+          {/* Right side - Hero image extends to edge */}
+          <div className="w-full h-[300px] sm:h-[400px] md:h-[450px] lg:h-auto lg:min-h-[496.513px] bg-gray-200 order-first lg:order-last relative">
+            <Image
+              src="/assets/hero_slide.webp"
+              alt="Meeting room with EPSON printer"
+              fill
+              className="object-cover"
+              priority
             />
           </div>
         </div>
@@ -83,36 +62,43 @@ export default function Home() {
               description="Find out more about the products and services we&apos;ve launched, how our customers are using them"
               image="/assets/Printing_Solutions.png"
               imageAlt="Printing Solutions"
+              href="/printing-solutions"
             />
             <SolutionCard
               title="Marketing & Sales System"
               description="Find out more about the products and services we&apos;ve launched, how our customers are using them"
               image="/assets/Marketing_Sales_System.png"
               imageAlt="Marketing & Sales System"
+              href="/marketing-sales-system"
+              
             />
             <SolutionCard
               title="Digital Signage Solutions"
               description="Find out more about the products and services we&apos;ve launched, how our customers are using them"
               image="/assets/Digital_Signage_Solutions.png"
               imageAlt="Digital Signage Solutions"
+              href="/productivity-efficiency"
             />
             <SolutionCard
               title="Security & Privacy"
               description="Find out more about the products and services we&apos;ve launched, how our customers are using them"
               image="/assets/Security_Privacy.png"
               imageAlt="Security & Privacy"
+              href="/security-privacy"
             />
             <SolutionCard
               title="Communication Solutions"
               description="Find out more about the products and services we&apos;ve launched, how our customers are using them"
               image="/assets/Communication_Solutions.png"
               imageAlt="Communication Solutions"
+              href="/communication-solutions"
             />
             <SolutionCard
               title="Hardware & Operational Solutions"
               description="Find out more about the products and services we&apos;ve launched, how our customers are using them"
               image="/assets/Hardware_Operational_Solutions.png"
               imageAlt="Hardware & Operational Solutions"
+              href="/hardware-operational-solutions"
             />
           </div>
         </div>
@@ -147,14 +133,13 @@ export default function Home() {
                   Revolutionise your shop or store signage with Samsung E-Paper.
                   Low power, digital alternative to posters.
                 </p>
-                <Button
-                  variant="default"
-                  size="lg"
-                  className="bg-brand-blue hover:bg-brand-blue-dark border-[1.945px] border-white text-white rounded-none flex items-center gap-2"
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-brand-blue hover:bg-brand-blue-dark border-[1.945px] border-white text-white rounded-none font-roboto font-normal transition-colors gap-2"
                 >
                   Learn More
                   <ArrowRight className="w-5 h-5" />
-                </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -182,6 +167,7 @@ export default function Home() {
               subheading="Book a Free Site Visit"
               description="Find out more about the products and services we've launched, how our customers are using them"
               buttonText="Get Started"
+              buttonUrl="/contact"
             />
             <WorkCard
               number={2}
@@ -189,6 +175,7 @@ export default function Home() {
               subheading="Comprehensive"
               description="Find out more about the products and services we've launched, how our customers are using them"
               buttonText="Book an Audit"
+              buttonUrl="/contact"
             />
             <WorkCard
               number={3}
@@ -196,6 +183,7 @@ export default function Home() {
               subheading="Digital Signage Solutions"
               description="Find out more about the products and services we've launched, how our customers are using them"
               buttonText="View Products"
+              buttonUrl="/contact"
             />
           </div>
         </div>
@@ -214,18 +202,21 @@ export default function Home() {
               description="Revolutionary ePaper displays. 90% less energy. Perfect sunlight readability. Transform your business communication with cutting-edge technology."
               image="/assets/epaper_display.png"
               bgColor="rgba(68, 146, 148, 0.6)"
+              link="/contact"
             />
             <ProductCard
               title="Epson ColourWorks"
               description="Take your label printing to the next level with the Epson ColourWorks label printing"
               image="/assets/makerbot_method.png"
               bgColor="rgba(99, 102, 106, 0.6)"
+              link="/contact"
             />
             <ProductCard
               title="MakerBot Method X"
               description="We bring best-in-class technology like the MakerBot Method X into your workflow - so innovation doesn&apos;t stay on the drawing board."
               image="/assets/epson_colour_works.png"
               bgColor="rgba(68, 146, 148, 0.6)"
+              link="/contact"
             />
           </div>
         </div>
