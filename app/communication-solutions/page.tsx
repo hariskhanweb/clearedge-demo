@@ -149,25 +149,19 @@ export default function CommunicationSolutions() {
                 </p>
               </div>
               <div className="flex flex-wrap flex-row gap-4">
-                <Link href="/contact">
-                  <Button
-                    variant="default"
-                    size="lg"
-                    className="bg-brand-blue hover:bg-[#023d8a] text-white rounded-none flex items-center gap-2"
-                  >
-                    Book an Audit
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-brand-blue hover:bg-[#023d8a] text-white rounded-none font-roboto font-normal transition-colors gap-2"
+                >
+                  Book an Audit
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
-                <Link href="/contact">
-                  <Button
-                    variant="default"
-                    size="lg"
-                    className="bg-[#767676] hover:bg-[#656565] text-white rounded-none flex items-center gap-2"
-                  >
-                    View Products
-                    <ArrowRight className="w-5 h-5" />
-                  </Button>
+                <Link 
+                  href="/contact"
+                  className="inline-flex items-center justify-center h-12 sm:h-14 px-4 sm:px-8 text-base sm:text-lg bg-[#767676] hover:bg-[#656565] text-white rounded-none font-roboto font-normal transition-colors gap-2"
+                >
+                  View Products
+                  <ArrowRight className="w-5 h-5" />
                 </Link>
               </div>
             </div>
